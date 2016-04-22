@@ -58,29 +58,31 @@
     },
 
 
-/*
-         _             _     _
-     ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
-    / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
-    \__ \ || (_| | |  | |_  | | | |  __/ | |  __/_
-    |___/\__\__,_|_|   \__| |_| |_|\___|_|  \___(_)
-
- */
-    /*=========================================================================
-    =                 TODO: fill in these Helper Functions                    =
-    =========================================================================*/
 
     // ROWS - run from left to right
     // --------------------------------------------------------------
     //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+      var count = 0;
+      var row = this.get(rowIndex);
+      for (var i = 0; i < row.length; i++) {
+        if (row[i]) {
+          count++;
+        }
+      }
+      return count > 1;
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
+      var rows = this.rows();
+      for (var i = 0; i < rows.length; i++) {
+        if (this.hasRowConflictAt(i)) {
+          return true;
+        }
+      }
+      return false;
     },
 
 
@@ -90,12 +92,12 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+      return false;
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      return false; // fixme
+      return false;
     },
 
 
@@ -105,12 +107,12 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      return false;
     },
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
-      return false; // fixme
+      return false;
     },
 
 
@@ -120,17 +122,15 @@
     //
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      return false;
     },
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
-      return false; // fixme
+      return false;
     }
 
-    /*--------------------  End of Helper Functions  ---------------------*/
-
-
+    
   });
 
   var makeEmptyMatrix = function(n) {
