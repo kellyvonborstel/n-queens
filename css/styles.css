@@ -1,0 +1,17 @@
+.square {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.positive {
+  background-color: #ccc;
+}
+
+.negative {
+  background-color: #999;
+}
+
+.inConflict{
+  background-color: red;
+}
