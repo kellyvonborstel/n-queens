@@ -150,14 +150,28 @@
     //
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
-      return false;
+      var count = 0;
+      var colIndex = minorDiagonalColumnIndexAtFirstRow;
+      var rows = this.rows();
+      for (var i = 0; i < rows.length; i++) {
+        if (rows[i][colIndex]) {
+          count++;
+        }
+        colIndex--;
+      }
+      return count > 1;
     },
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
+      var rows = this.rows();
+      for (var i = 0; i < rows.length; i++) {
+        if (this.hasMinorDiagonalConflictAt(i)) {
+          return true;
+        }
+      }
       return false;
     }
-
     
   });
 
